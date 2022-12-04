@@ -1,40 +1,28 @@
-<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title></title>
-</head>
-<p id="temp">body temperature:</p>
-<p id="noise">noise level:</p>
-<p id="ti">time counter:</p>
 <body>
-	
-<script>
-function sleep (time) {
-  return new Promise((resolve) => setTimeout(resolve, time));
+<label for="temp">body temperature:</label>
+<input type="text" id="temp" />
+<label for="noise">noise level:</label>
+<input type="text" id="noise" />
+<label for="ti">time counter:</label>
+<input type="text" id="ti" />
+<script type="text/javascript">
+var int=self.setInterval("clock()",1000);
+var count = 0;
+function clock()
+{
+// var d=new Date();
+var t=((Math.random() * (10)) + 35).toFixed(1);
+document.getElementById("temp").value=t;
+t=Math.floor(Math.random() * (50)) + 50;
+document.getElementById("noise").value=t;
+// t=Math.floor(Math.random() * (5)) + 0;
+count = count + 1;
+document.getElementById("ti").value=count;
 }
-
-async function myFunction() {
-    
-    var max = 5;
-    var min = 0;
-    for (var i=0; i<5; i++)
-    {   
-        sleep(1000).then(() => {
-        // Do something after the sleep!
-        // 生成随机数
-        var a = Math.floor(Math.random() * (max - min + 1)) + min;
-
-        // 显示随机数
-        // document.write(`${a} `);
-        document.getElementById("temp").innerHTML = `${a} `;
-        });
-        
-    }
-}
-
-myFunction();
 </script>
-	
+
+
+
 </body>
 </html>
