@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<p id="temp">body temperature:</p>
+<p id="noise">noise level:</p>
+<p id="ti">time counter:</p>
+<body>
+	
+<script>
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
+async function myFunction() {
+    
+    var max = 5;
+    var min = 0;
+    for (var i=0; i<5; i++)
+    {   
+        sleep(1000).then(() => {
+        // Do something after the sleep!
+        // 生成随机数
+        var a = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        // 显示随机数
+        // document.write(`${a} `);
+        document.getElementById("temp").innerHTML = `${a} `;
+        });
+        
+    }
+}
+
+myFunction();
+</script>
+	
+</body>
+</html>
