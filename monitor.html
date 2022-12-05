@@ -30,9 +30,21 @@
 <input type="text" id="temp" />
 </div>
 
+<body>
+    <div style="text-align:center;margin-top:20pt;zoom: 160%">
+    <label for="tw">temperature warning:</label>
+    <input type="text" id="tw" />
+</div>
+
 <div style="text-align:center;margin-top:10pt;zoom: 160%">
 <label for="noise">noise level:</label>
 <input type="text" id="noise" />
+</div>
+
+<body>
+    <div style="text-align:center;margin-top:20pt;zoom: 160%">
+    <label for="nw">noise warning:</label>
+    <input type="text" id="nw" />
 </div>
 
 <div style="text-align:center;margin-top:10pt;zoom: 160%">
@@ -42,7 +54,7 @@
 
 <div style="text-align:center;margin-top:36pt;zoom: 200%; color: mediumvioletred">
     <label for="ac">Decision:</label>
-    <input type="text" id="ac" />
+    <input type="text" size = "80" id="ac" />
 </div>
 
 <script type="text/javascript">
@@ -53,14 +65,22 @@ function clock()
 // var d=new Date();
 var t=((Math.random() * (10)) + 35).toFixed(1);
 document.getElementById("temp").value=t;
-t=Math.floor(Math.random() * (50)) + 50;
-document.getElementById("noise").value=t;
+var n=Math.floor(Math.random() * (50)) + 50;
+document.getElementById("noise").value=n;
 // t=Math.floor(Math.random() * (5)) + 0;
 count = count + 1;
 document.getElementById("ti").value=count;
 if (count > 30){
     document.getElementById("ti").value="Time is up";
     document.getElementById("ac").value="Staff take the pet back";
+}
+if (t < 37 || t > 40){
+    document.getElementById("tw").value="Body temperature abnormal!";
+    document.getElementById("ac").value="Stop playing! We are calling local pet doctor to make emergency treatment.";
+}
+if (n > 70){
+    document.getElementById("nw").value="Volume abnormal!";
+    document.getElementById("ac").value="Stop playing! Staff please come and check the pet status. And we can decide what to do next.";
 }
 }
 </script>
