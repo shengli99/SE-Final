@@ -1,0 +1,45 @@
+<html>
+<title>Matching</title>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Register</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            background: url(recommend.jpg) no-repeat 0px 0px;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            -moz-background-size: 100% 100%;
+        }
+    </style>
+</head>
+
+
+<body>
+<div style="text-align:center;margin-top:120pt;zoom: 160%">
+    <label for="senior" style="color:white">Recommended Senior:</label>
+    <input type="text" id="senior" />
+</div>
+<input type="button" value="Recommend" onclick="match()" style="margin-left:300pt;margin-top:10pt;zoom: 160%">
+<!--<input type="button" value="Start Monitoring" onclick="match()" style="margin-left:300pt;margin-top:10pt;zoom: 160%">-->
+<a href=monitor.html><input type="button" class="button" value="Start Monitoring" style="margin-left:300pt;margin-top:10pt;zoom: 160%"></a>
+
+<script type="text/javascript">
+    function match(){
+        document.getElementById("senior").value=Math.ceil(Math.random()*10).toFixed(0);
+    }
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<html>
+<title>Monitoring</title>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Register</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            background: url(monitor.jpg) no-repeat 0px 0px;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            -moz-background-size: 100% 100%;
+        }
+    </style>
+</head>
+
+
+<body>
+<div style="text-align:center;margin-top:20pt;zoom: 160%">
+<label for="temp">body temperature:</label>
+<input type="text" id="temp" />
+</div>
+
+<div style="text-align:center;margin-top:10pt;zoom: 160%">
+<label for="noise">noise level:</label>
+<input type="text" id="noise" />
+</div>
+
+<div style="text-align:center;margin-top:10pt;zoom: 160%">
+<label for="ti">time counter:</label>
+<input type="text" id="ti" />
+</div>
+
+<div style="text-align:center;margin-top:36pt;zoom: 200%; color: mediumvioletred">
+    <label for="ac">Decision:</label>
+    <input type="text" id="ac" />
+</div>
+
+<script type="text/javascript">
+var int=self.setInterval("clock()",1000);
+var count = 0;
+function clock()
+{
+// var d=new Date();
+var t=((Math.random() * (10)) + 35).toFixed(1);
+document.getElementById("temp").value=t;
+t=Math.floor(Math.random() * (50)) + 50;
+document.getElementById("noise").value=t;
+// t=Math.floor(Math.random() * (5)) + 0;
+count = count + 1;
+document.getElementById("ti").value=count;
+if (count > 30){
+    document.getElementById("ti").value="Time is up";
+    document.getElementById("ac").value="Staff take the pet back";
+}
+}
+</script>
+
+
+
+</body>
+</html>
